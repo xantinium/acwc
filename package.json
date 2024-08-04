@@ -1,5 +1,8 @@
 {
   "name": "acwc",
   "description": "AltCraft Web Components helper",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "author": "Altcraft LLC",
+  "license": "Proprietary",
+  "private": true
 }
