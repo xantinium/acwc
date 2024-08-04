@@ -1,8 +1,17 @@
 {
-  "name": "acwc",
-  "description": "AltCraft Web Components helper",
+  "name": "altcraft-web-components",
+  "description": "Helper for building Web Components",
   "version": "1.0.0",
   "author": "Altcraft LLC",
   "license": "Proprietary",
-  "private": true
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "bin": {
+    "acwc": "./index.js"
+  },
+  "devDependencies": {
+    "prompts": "^2.4.2"
+  }
 }
