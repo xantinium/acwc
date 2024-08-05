@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json.schemastore.org/swcrc",
+    "jsc": {
+        "target": "es5",
+        "parser": {
+            "tsx": true,
+            "syntax": "typescript",
+            "decorators": true
+        },
+        "transform": {
+            "react": {
+                "runtime": "automatic"
+            },
+            "useDefineForClassFields": true
+        },
+        "experimental": {
+            "plugins": [
+                [
+                    "@lingui/swc-plugin",
+                    {}
+                ]
+            ]
+        }
+    },
+    "minify": true
+}
+
