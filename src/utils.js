@@ -51,8 +51,8 @@ const KNOWN_FILES = {
         out: '/public/index.html',
     },
     ABSTRACT_WEB_COMPONENT: {
-        in: '/abstract-wc.js',
-        out: '/abstract-wc.js',
+        in: '/public/abstract-wc.js',
+        out: '/public/abstract-wc.js',
     },
 };
 
@@ -85,6 +85,7 @@ export async function setFileContent(filepath, content) {
  * Параметры для подстановки
  * @typedef Params
  * @property {string} name Имя веб-компонента
+ * @property {string} title Человекопонятное имя веб-компонента
  */
 
 /**

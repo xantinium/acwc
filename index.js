@@ -1,13 +1,8 @@
 #!/usr/bin/env node
 
-import prompts from 'prompts';
 import { cleanUp, convertFromKebabCase, generateDist, KNOWN_COMMANDS, parseCommand } from './src/utils.js';
-import { initPackageJSON } from './src/configs/package-json.js';
-import { getActionType } from './src/prompts/action-type.js';
-import { getWebComponentName } from './src/prompts/web-component-name.js';
 import { command_start } from './src/commands/start.js';
-
-export const PROJECT_NAME_REGEXP = /^[a-z\d\-]+$/;
+import { initPackageJSON } from './src/configs/package-json.js';
 
 async function acwc() {
     const command = parseCommand(process.argv);
@@ -24,25 +19,14 @@ async function acwc() {
         return;
     }
 
-    // const actionType = getActionType();
+    cleanUp();
 
-    // if (actionType === ACTIONS.INIT) {
-    //     wcName = getWebComponentName();
+    const packageJSON = await initPackageJSON();
 
-    //     await cleanUp();
-
-    //     try {
-    //         await generateDist({
-    //             name: convertFromKebabCase(wcName, 'pascal-case'),
-    //         });
-    //     } catch (err) {
-    //         cleanUp();
-
-    //         console.error(err);
-    //     }
-    // }
-
-    // initPackageJSON();
+    await generateDist({
+        name: convertFromKebabCase(packageJSON.name, 'pascal-case'),
+        title: convertFromKebabCase(packageJSON.name, 'spaced-pascal-case'),
+    });
 }
 
 acwc();

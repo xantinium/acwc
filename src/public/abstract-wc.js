@@ -28,6 +28,8 @@
     }
 
     class Abstract__NAME__ extends HTMLElement {
+        static getName = () => __TAG__;
+
         constructor() {
             super();
 
@@ -36,10 +38,29 @@
             }
 
             this.depsManages = new DepsManages();
+
+            this.modelRef = { current: null };
         }
 
-        connectedCallback() {}
+        connectedCallback() {
+            const shadow = this.attachShadow({ mode: 'closed' });
+
+            const container = document.createElement('div');
+
+            shadow.append(createStyles(), container);
+
+            // Нужно для подгрузки шрифтов в dev-режиме
+		    document.head.append(createStyles());
+        }
     }
 
-    window[Abstract__NAME__.name] = Abstract__NAME__;
+    function createStyles() {
+		const styles = document.createElement('style');
+
+		styles.append(__CSS__);
+
+		return styles;
+	}
+
+    window.customElements.define(Abstract__NAME__.getName(), Abstract__NAME__);
 })();
