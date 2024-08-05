@@ -30,6 +30,12 @@ function getWebpackConfig() {
             rules: getWebpackLoaders(),
         },
         plugins: getWebpackPlugins(),
+        stats: {
+            assets: false,
+            modules: false,
+            entrypoints: false,
+            version: false,
+        },
     };
 }
 
