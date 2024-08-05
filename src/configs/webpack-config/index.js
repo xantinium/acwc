@@ -30,15 +30,15 @@ function getWebpackConfig(isDev) {
             rules: getWebpackLoaders(isDev),
         },
         plugins: getWebpackPlugins(isDev),
-        stats: {
-            assets: false,
-            modules: false,
-            entrypoints: false,
-            version: false,
-        },
-        infrastructureLogging: {
-            level: 'warn',
-        },
+        // stats: {
+        //     assets: false,
+        //     modules: false,
+        //     entrypoints: false,
+        //     version: false,
+        // },
+        // infrastructureLogging: {
+        //     level: 'warn',
+        // },
     };
 }
 

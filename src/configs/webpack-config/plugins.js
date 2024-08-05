@@ -37,7 +37,6 @@ class WebComponentsPlugin {
         compiler.hooks.done.tap(
             WebComponentsPlugin.name,
             (...args) => {
-                console.log('This is an example plugin!');
                 console.log(
                     'Here’s the `compilation` object which represents a single build of assets:',
                     args
@@ -79,7 +78,7 @@ export function getWebpackPlugins(isDev) {
     if (isDev) {
         plugins.push(
             new webpack.ProgressPlugin({
-                handler: getPercentageHanlder(),
+                // handler: getPercentageHanlder(),
             }),
         );
     } else {
