@@ -1,3 +1,4 @@
+import ip from 'ip';
 import path from 'node:path';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
@@ -65,6 +66,8 @@ export function getWebpackPlugins() {
 }
 
 function getWebpackDevServerConfig() {
+    const target = `http://${ip.address()}`;
+
     return {
         port: 3000,
         historyApiFallback: true,
@@ -156,12 +159,12 @@ export function command_start() {
             },
         },
         devtool: 'eval-source-map',
-        stats: {
-            assets: false,
-            modules: false,
-            entrypoints: false,
-            version: false,
-        },
+        // stats: {
+        //     assets: false,
+        //     modules: false,
+        //     entrypoints: false,
+        //     version: false,
+        // },
         module: {
             rules: getWebpackLoaders(),
         },
