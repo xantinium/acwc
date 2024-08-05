@@ -12,6 +12,7 @@ export const ACTIONS = {
 };
 
 async function acwc() {
+    console.log(process.cwd());
     // const { actionType } = await prompts({
     //     type: 'select',
     //     name: 'actionType',
