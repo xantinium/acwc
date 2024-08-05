@@ -11,8 +11,7 @@ export const ACTIONS = {
     UPDATE: 'update',
 };
 
-async function acwc(...qwe) {
-    console.log(qwe);
+async function acwc() {
     // const { actionType } = await prompts({
     //     type: 'select',
     //     name: 'actionType',
@@ -61,7 +60,7 @@ async function acwc(...qwe) {
     //     }
     // }
 
-    // initPackageJSON();
+    initPackageJSON();
 }
 
 acwc();
