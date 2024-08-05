@@ -16,7 +16,7 @@ export const Logger = {
      * Вывод логотипа
      * @param {number} padding Размер отступа
      */
-    printLogo(padding) {
+    printLogo(padding = 12) {
         let logo = `
           _ _    _____            __ _
     /\\   | | |  / ____|          / _| |
