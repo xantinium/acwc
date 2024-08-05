@@ -43,5 +43,8 @@ function getWebpackConfig(isDev) {
 }
 
 export function createWebpackDevServer(isDev) {
-    return new WebpackDevServer(getWebpackDevServerConfig(), webpack(getWebpackConfig(isDev)));
+    const devServerConfig = getWebpackDevServerConfig();
+    const compiler = webpack(getWebpackConfig(isDev));
+
+    return new WebpackDevServer(devServerConfig, compiler);
 }
