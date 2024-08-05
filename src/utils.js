@@ -1,3 +1,4 @@
+import os from 'node:os';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -47,7 +48,7 @@ export function getFileContent(filepath) {
  * @param {string} filepath Путь до файла
  * @param {string} content Строка
  */
-async function setFileContent(filepath, content) {
+export async function setFileContent(filepath, content) {
     try {
         await fs.mkdir(path.dirname(filepath), { recursive: true });
     } catch (err) {
@@ -56,7 +57,7 @@ async function setFileContent(filepath, content) {
         }
     }
 
-    return fs.writeFile(filepath, content, { encoding: 'utf-8' })
+    return fs.writeFile(filepath, content + os.EOL, { encoding: 'utf-8' })
 }
 
 /**

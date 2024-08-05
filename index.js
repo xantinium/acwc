@@ -11,7 +11,9 @@ export const ACTIONS = {
     UPDATE: 'update',
 };
 
-async function acwc() {
+async function acwc(...qwe) {
+    console.log(qwe);
+    console.log(process.execArgv);
     // const { actionType } = await prompts({
     //     type: 'select',
     //     name: 'actionType',
