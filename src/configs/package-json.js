@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { PROCESS_DIR } from '../utils';
+import { PROCESS_DIR } from '../utils.js';
 
 export async function initPackageJSON() {
     console.log(PROCESS_DIR);
