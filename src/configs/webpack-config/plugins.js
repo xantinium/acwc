@@ -7,7 +7,7 @@ import { Logger } from '../../logger.js';
 const IP_V4 = ip.address();
 const DEFAULT_PORT = 3000;
 
-export function getPercentageHanlder() {
+function getPercentageHanlder() {
     let oldPercentage = -1;
 
     return (v) => {
@@ -32,6 +32,26 @@ export function getPercentageHanlder() {
     };
 }
 
+class WebComponentsPlugin {
+    apply(compiler) {
+        compiler.hooks.done.tap(
+            WebComponentsPlugin.name,
+            (compilation, callback) => {
+                console.log('This is an example plugin!');
+                console.log(
+                    'Here’s the `compilation` object which represents a single build of assets:',
+                    compilation
+                );
+        
+                // Manipulate the build using the plugin API provided by webpack
+                // compilation.addModule(/* ... */);
+        
+                callback();
+            }
+        );
+    }
+}
+
 /**
  * @param {boolean} isDev
  */
@@ -53,6 +73,7 @@ export function getWebpackPlugins(isDev) {
         new webpack.IgnorePlugin({
             resourceRegExp: /\.md$/i,
         }),
+        new WebComponentsPlugin(),
     ];
 
     if (isDev) {
