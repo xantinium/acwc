@@ -6,7 +6,7 @@ import { getWebpackLoaders } from './loaders.js';
 import { getWebpackPlugins } from './plugins.js';
 import { getWebpackDevServerConfig } from './dev-server.js';
 
-function getWebpackConfig() {
+function getWebpackConfig(isDev) {
     return {
         target: 'web',
         mode: 'development',
@@ -27,18 +27,21 @@ function getWebpackConfig() {
         },
         devtool: 'eval-source-map',
         module: {
-            rules: getWebpackLoaders(),
+            rules: getWebpackLoaders(isDev),
         },
-        plugins: getWebpackPlugins(),
+        plugins: getWebpackPlugins(isDev),
         stats: {
             assets: false,
             modules: false,
             entrypoints: false,
             version: false,
         },
+        infrastructureLogging: {
+            level: 'warn',
+        },
     };
 }
 
-export function createWebpackDevServer() {
-    return new WebpackDevServer(getWebpackDevServerConfig(), webpack(getWebpackConfig()));
+export function createWebpackDevServer(isDev) {
+    return new WebpackDevServer(getWebpackDevServerConfig(), webpack(getWebpackConfig(isDev)));
 }
