@@ -8,7 +8,7 @@ const DIST_DIR = path.join(CURRENT_DIR, '..', 'dist');
 
 function toUpperCaseFirstChar(str) {
     return `${str.slice(0, 1).toUpperCase()}${str.slice(1)}`;
-};
+}
 
 /**
  * Функция для стилизации текста из "шашлычной" нотации
@@ -22,6 +22,27 @@ export function convertFromKebabCase(text, style) {
     case 'spaced-pascal-case':
         return text.split('-').map(toUpperCaseFirstChar).join(' ');
     }
+}
+
+export const KNOWN_COMMANDS = {
+    START: 'start',
+    TEST: 'test',
+    BUILD: 'build',
+};
+
+/**
+ * Получить команду из переданных аргументов
+ * @param {string[]} args Аргументы команды
+ * @returns {keyof typeof KNOWN_COMMANDS | null} 
+ */
+export function parseCommand(args) {
+    const command = args[2];
+
+    if (typeof command !== 'string' || !Object.values(KNOWN_COMMANDS).includes(command)) {
+        return null;
+    }
+
+    return command;
 }
 
 const KNOWN_FILES = {

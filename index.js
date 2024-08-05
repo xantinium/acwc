@@ -1,53 +1,32 @@
 #!/usr/bin/env node
 
 import prompts from 'prompts';
-import { cleanUp, convertFromKebabCase, generateDist } from './src/utils.js';
+import { cleanUp, convertFromKebabCase, generateDist, KNOWN_COMMANDS, parseCommand } from './src/utils.js';
 import { initPackageJSON } from './src/configs/package-json.js';
+import { getActionType } from './src/prompts/action-type.js';
+import { getWebComponentName } from './src/prompts/web-component-name.js';
 
 export const PROJECT_NAME_REGEXP = /^[a-z\d\-]+$/;
 
-export const ACTIONS = {
-    INIT: 'init',
-    UPDATE: 'update',
-};
+async function acwc() {
+    const command = parseCommand(process.argv);
 
-async function acwc(...qwe) {
-    console.log(qwe);
-    console.log(process.execArgv);
-    // const { actionType } = await prompts({
-    //     type: 'select',
-    //     name: 'actionType',
-    //     message: 'Select the action you want to perform',
-    //     choices: [
-    //         {
-    //             title: 'Init new web component',
-    //             value: ACTIONS.INIT,
-    //         },
-    //         {
-    //             title: 'Update an existing web component',
-    //             value: ACTIONS.UPDATE,
-    //             disabled: true,
-    //         },
-    //     ],
-    // });
+    switch (command) {
+    case KNOWN_COMMANDS.START:
+        console.log('start');
+        return;
+    case KNOWN_COMMANDS.TEST:
+        console.log('test');
+        return;
+    case KNOWN_COMMANDS.BUILD:
+        console.log('build');
+        return;
+    }
+
+    // const actionType = getActionType();
 
     // if (actionType === ACTIONS.INIT) {
-    //     const { wcName } = await prompts({
-    //         type: 'text',
-    //         name: 'wcName',
-    //         message: 'Name of web component',
-    //         validate: (v) => {
-    //             if (v.length === 0) {
-    //                 return 'Name should not be empty'
-    //             }
-
-    //             if (!PROJECT_NAME_REGEXP.test(v)) {
-    //                 return `Name should match the pattern: ${PROJECT_NAME_REGEXP}`;
-    //             }
-    
-    //             return true;
-    //         },
-    //     });
+    //     wcName = getWebComponentName();
 
     //     await cleanUp();
 
@@ -62,7 +41,7 @@ async function acwc(...qwe) {
     //     }
     // }
 
-    initPackageJSON();
+    // initPackageJSON();
 }
 
 acwc();
