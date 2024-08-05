@@ -38,7 +38,7 @@ const KNOWN_FILES = {
  * Получить содержимое файла в виде строки
  * @param {string} filepath Путь до файла
  */
-function getFileContent(filepath) {
+export function getFileContent(filepath) {
     return fs.readFile(filepath, { encoding: 'utf-8' });
 }
 
