@@ -36,16 +36,14 @@ class WebComponentsPlugin {
     apply(compiler) {
         compiler.hooks.done.tap(
             WebComponentsPlugin.name,
-            (...args) => {
+            (compilation) => {
                 console.log(
                     'Here’s the `compilation` object which represents a single build of assets:',
-                    args
+                    compilation
                 );
-        
+
                 // Manipulate the build using the plugin API provided by webpack
                 // compilation.addModule(/* ... */);
-        
-                callback();
             }
         );
     }
