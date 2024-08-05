@@ -1,5 +1,6 @@
 import ip from 'ip';
 import webpack from 'webpack';
+import { execSync } from 'node:child_process';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { Logger } from '../../logger.js';
 
