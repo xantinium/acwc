@@ -2,6 +2,7 @@ import ip from 'ip';
 import path from 'node:path';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { PROCESS_DIR } from '../utils.js';
 
 function getWebpackLoaders() {
