@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-const CURRENT_DIR = import.meta.dirname;
+export const CURRENT_DIR = import.meta.dirname;
 const DIST_DIR = path.join(CURRENT_DIR, '..', 'dist');
 
 function toUpperCaseFirstChar(str) {
