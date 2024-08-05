@@ -5,6 +5,7 @@ import { cleanUp, convertFromKebabCase, generateDist, KNOWN_COMMANDS, parseComma
 import { initPackageJSON } from './src/configs/package-json.js';
 import { getActionType } from './src/prompts/action-type.js';
 import { getWebComponentName } from './src/prompts/web-component-name.js';
+import { command_start } from './src/commands/start.js';
 
 export const PROJECT_NAME_REGEXP = /^[a-z\d\-]+$/;
 
@@ -13,7 +14,7 @@ async function acwc() {
 
     switch (command) {
     case KNOWN_COMMANDS.START:
-        console.log('start');
+        command_start();
         return;
     case KNOWN_COMMANDS.TEST:
         console.log('test');
