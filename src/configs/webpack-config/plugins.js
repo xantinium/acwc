@@ -1,8 +1,9 @@
+import ip from 'ip';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { Logger } from '../../logger.js';
 
-const IP_V4 = address();
+const IP_V4 = ip.address();
 const DEFAULT_PORT = 3000;
 
 export function getPercentageHanlder() {
