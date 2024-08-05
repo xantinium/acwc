@@ -1,3 +1,4 @@
+import path from 'node:path';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import { PROCESS_DIR } from '../../utils.js';
