@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "downlevelIteration": true,
+        "lib": [
+          "DOM",
+          "DOM.Iterable",
+          "ESNext"
+        ],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "ESNext",
+        "jsx": "react-jsx",
+        "moduleResolution": "Bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowUmdGlobalAccess": true,
+        "experimentalDecorators": true,
+        "useDefineForClassFields": true,
+        "useUnknownInCatchVariables": false,
+    },
+    "include": [
+        "./src",
+    ]
+}

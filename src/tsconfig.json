@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "strictNullChecks": false,
+        "skipLibCheck": true,
+        "module": "Node16",
+        "moduleResolution": "Node16",
+        "rootDir": ".",
+        "outDir": "../dist",
+        "declaration": true,
+        "declarationDir": "../dist/types",
+        "allowSyntheticDefaultImports": true
+    }
+}
