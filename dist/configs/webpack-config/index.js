@@ -19,7 +19,7 @@ function getWebpackConfig(isDev) {
         output: {
             clean: true,
             path: node_path_1.default.join(utils_1.PROCESS_DIR, 'dist'),
-            filename: 'wc.js',
+            filename: 'web-components.js',
         },
         watchOptions: {
             ignored: /node_modules/,

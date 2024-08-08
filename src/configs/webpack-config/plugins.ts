@@ -38,7 +38,7 @@ function getPercentageHanlder() {
 export function getWebpackPlugins(isDev: boolean) {
     const plugins: WebpackPluginInstance[] = [
         new MiniCssExtractPlugin({
-            filename: 'wc.css',
+            filename: 'web-components.css',
             // см. https://github.com/webpack-contrib/mini-css-extract-plugin/issues/250#issuecomment-447346852
             // и связанные с этим комментарием issue. Мы используем css модули - нам не важен порядок css.
             ignoreOrder: true,
@@ -47,12 +47,12 @@ export function getWebpackPlugins(isDev: boolean) {
         new webpack.optimize.LimitChunkCountPlugin({
             maxChunks: 1,
         }),
-        new webpack.ProvidePlugin({
-            React: 'react',
-        }),
-        new webpack.IgnorePlugin({
-            resourceRegExp: /\.md$/i,
-        }),
+        // new webpack.ProvidePlugin({
+        //     React: 'react',
+        // }),
+        // new webpack.IgnorePlugin({
+        //     resourceRegExp: /\.md$/i,
+        // }),
     ];
 
     if (isDev) {
