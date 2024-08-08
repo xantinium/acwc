@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import { command_start } from './commands/start';
 import { initPackageJSON } from './configs/package-json';
 import { cleanUp, convertFromKebabCase, generateDist, KNOWN_COMMANDS, parseCommand, } from './utils';
-function acwc() {
+export function acwc() {
     return __awaiter(this, void 0, void 0, function () {
         var command, packageJSON;
         return __generator(this, function (_a) {
@@ -71,4 +71,3 @@ function acwc() {
         });
     });
 }
-acwc();

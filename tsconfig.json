@@ -6,7 +6,7 @@
         "module": "ESNext",
         "moduleResolution": "Node",
         "rootDir": "./src",
-        "outDir": "./bin",
+        "outDir": "./dist",
         "allowSyntheticDefaultImports": true
     },
     "include": [

@@ -6,7 +6,7 @@ import {
     cleanUp, convertFromKebabCase, generateDist, KNOWN_COMMANDS, parseCommand,
 } from './utils';
 
-async function acwc() {
+export async function acwc() {
     const command = parseCommand(process.argv);
 
     switch (command) {
@@ -30,5 +30,3 @@ async function acwc() {
         title: convertFromKebabCase(packageJSON.name, 'spaced-pascal-case'),
     });
 }
-
-acwc();

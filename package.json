@@ -10,9 +10,9 @@
     "node": ">=20.0.0"
   },
   "bin": {
-    "acwc": "./bin/index.js"
+    "acwc": "./index.js"
   },
-  "files": ["bin"],
+  "files": ["./dist/"],
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc -p tsconfig.json"
