@@ -10,7 +10,7 @@
     "node": ">=20.0.0"
   },
   "bin": {
-    "acwc": "./index.js"
+    "acwc": "./dist/index.js"
   },
   "scripts": {
     "prebuild": "rm -rf ./dist",
