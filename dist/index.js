@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.acwc = void 0;
 const start_1 = require("./commands/start");
 const package_json_1 = require("./configs/package-json");
 const utils_1 = require("./utils");
@@ -25,4 +24,4 @@ async function acwc() {
         title: (0, utils_1.convertFromKebabCase)(packageJSON.name, 'spaced-pascal-case'),
     });
 }
-exports.acwc = acwc;
+acwc();
