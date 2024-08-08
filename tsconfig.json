@@ -3,10 +3,10 @@
         "strict": true,
         "strictNullChecks": false,
         "skipLibCheck": true,
-        "module": "System",
+        "module": "ESNext",
         "moduleResolution": "Node",
         "rootDir": "./src",
-        "outFile": "./dist/acwc.js",
+        "outDir": "./bin",
         "allowSyntheticDefaultImports": true
     },
     "include": [
