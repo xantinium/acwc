@@ -1,3 +1,5 @@
-const { acwc } = require('altcraft-web-components');
+#!/usr/bin/env node
+
+import { acwc } from './src';
 
 acwc();
