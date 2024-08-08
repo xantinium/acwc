@@ -1,1 +1,1 @@
-export type { WebComponent } from '../src';
+export { WebComponent } from '../src';
