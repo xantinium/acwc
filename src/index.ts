@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { command_start } from './commands/start';
 import { initPackageJSON } from './configs/package-json';
 import {
