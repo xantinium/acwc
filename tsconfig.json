@@ -5,12 +5,12 @@
         "skipLibCheck": true,
         "module": "ES2022",
         "moduleResolution": "Node",
+        "rootDir": "./src",
         "isolatedModules": true,
         "allowSyntheticDefaultImports": true
     },
     "include": [
         "./src",
-        "./index.ts",
         "./declarations.d.ts"
     ],
     "exclude": [
