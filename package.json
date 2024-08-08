@@ -11,9 +11,11 @@
   "bin": {
     "acwc": "./dist/index.js"
   },
-  "files": ["./dist"],
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   },
   "scripts": {
     "prebuild": "rm -rf ./dist",
