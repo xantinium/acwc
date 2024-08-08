@@ -5,7 +5,6 @@
   "author": "Altcraft LLC",
   "license": "Proprietary",
   "private": true,
-  "type": "module",
   "engines": {
     "node": ">=20.0.0"
   },

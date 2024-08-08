@@ -1,17 +1,23 @@
-import ip from 'ip';
-import path from 'node:path';
-import readline from 'node:readline';
-import { CURRENT_DIR } from '../../utils';
-export function getWebpackDevServerConfig() {
-    var target = "http://".concat(ip.address());
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getWebpackDevServerConfig = void 0;
+const ip_1 = __importDefault(require("ip"));
+const node_path_1 = __importDefault(require("node:path"));
+const node_readline_1 = __importDefault(require("node:readline"));
+const utils_1 = require("../../utils");
+function getWebpackDevServerConfig() {
+    const target = `http://${ip_1.default.address()}`;
     return {
         port: 3000,
-        static: path.join(CURRENT_DIR, '..', 'public'),
+        static: node_path_1.default.join(utils_1.CURRENT_DIR, '..', 'public'),
         proxy: [
             {
-                target: target,
+                target,
                 logLevel: 'silent',
-                context: function (pathname) {
+                context(pathname) {
                     if (pathname.includes('/ajax')) {
                         return true;
                     }
@@ -32,9 +38,9 @@ export function getWebpackDevServerConfig() {
                 warnings: false,
             },
         },
-        onListening: function () {
-            readline.emitKeypressEvents(process.stdin);
-            process.stdin.addListener('keypress', function (data) {
+        onListening() {
+            node_readline_1.default.emitKeypressEvents(process.stdin);
+            process.stdin.addListener('keypress', (data) => {
                 if (data === 'q') {
                     process.exit(0);
                 }
@@ -43,3 +49,4 @@ export function getWebpackDevServerConfig() {
         },
     };
 }
+exports.getWebpackDevServerConfig = getWebpackDevServerConfig;

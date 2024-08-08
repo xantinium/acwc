@@ -1,6 +1,12 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-export function getWebpackLoaders(isDev) {
-    var cssLoader = {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getWebpackLoaders = void 0;
+const mini_css_extract_plugin_1 = __importDefault(require("mini-css-extract-plugin"));
+function getWebpackLoaders(isDev) {
+    const cssLoader = {
         loader: 'css-loader',
         options: {
             sourceMap: false,
@@ -10,10 +16,10 @@ export function getWebpackLoaders(isDev) {
             },
         },
     };
-    var loaders = [
+    const loaders = [
         {
             test: /\.[jt]sx?$/i,
-            include: function (value) {
+            include(value) {
                 // Мы должны прогнать файлы из фронт репы через сборщик, т.к. там лежат ts-файлы
                 if (value.includes('node_modules')) {
                     return value.includes('altkraft-frontend');
@@ -25,7 +31,7 @@ export function getWebpackLoaders(isDev) {
         {
             test: /\.css$/i,
             use: [
-                MiniCssExtractPlugin.loader,
+                mini_css_extract_plugin_1.default.loader,
                 cssLoader,
             ],
             exclude: [],
@@ -33,7 +39,7 @@ export function getWebpackLoaders(isDev) {
         {
             test: /\.scss$/i,
             use: [
-                MiniCssExtractPlugin.loader,
+                mini_css_extract_plugin_1.default.loader,
                 cssLoader,
                 {
                     loader: 'sass-loader',
@@ -51,7 +57,7 @@ export function getWebpackLoaders(isDev) {
         {
             test: /\.less$/i,
             use: [
-                MiniCssExtractPlugin.loader,
+                mini_css_extract_plugin_1.default.loader,
                 cssLoader,
                 'less-loader',
             ],
@@ -74,3 +80,4 @@ export function getWebpackLoaders(isDev) {
     ];
     return loaders;
 }
+exports.getWebpackLoaders = getWebpackLoaders;

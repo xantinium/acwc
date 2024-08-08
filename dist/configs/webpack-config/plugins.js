@@ -1,24 +1,30 @@
-import ip from 'ip';
-import webpack from 'webpack';
-import { execSync } from 'node:child_process';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { Logger } from '../../logger';
-var IP_V4 = ip.address();
-var DEFAULT_PORT = 3000;
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getWebpackPlugins = void 0;
+const ip_1 = __importDefault(require("ip"));
+const webpack_1 = __importDefault(require("webpack"));
+const node_child_process_1 = require("node:child_process");
+const mini_css_extract_plugin_1 = __importDefault(require("mini-css-extract-plugin"));
+const logger_1 = require("../../logger");
+const IP_V4 = ip_1.default.address();
+const DEFAULT_PORT = 3000;
 function getPercentageHanlder() {
-    var oldPercentage = -1;
-    return function (v) {
-        var percentage = Math.floor(v * 100);
+    let oldPercentage = -1;
+    return (v) => {
+        const percentage = Math.floor(v * 100);
         if (percentage > oldPercentage) {
             oldPercentage = percentage;
-            Logger.clear();
-            Logger.printLogo();
-            Logger.log('Project is running at: ', { withNewline: false });
-            Logger.log("http://".concat(IP_V4, ":").concat(DEFAULT_PORT, "\n"), { color: 'cyan' });
-            Logger.log('Press ', { withNewline: false });
-            Logger.log('q', { withNewline: false, color: 'green' });
-            Logger.log(' to exit\n');
-            Logger.log("Building an app...".concat(percentage, "%"));
+            logger_1.Logger.clear();
+            logger_1.Logger.printLogo();
+            logger_1.Logger.log('Project is running at: ', { withNewline: false });
+            logger_1.Logger.log(`http://${IP_V4}:${DEFAULT_PORT}\n`, { color: 'cyan' });
+            logger_1.Logger.log('Press ', { withNewline: false });
+            logger_1.Logger.log('q', { withNewline: false, color: 'green' });
+            logger_1.Logger.log(' to exit\n');
+            logger_1.Logger.log(`Building an app...${percentage}%`);
         }
         if (oldPercentage === 100) {
             oldPercentage = -1;
@@ -28,33 +34,34 @@ function getPercentageHanlder() {
 /**
  * @param {boolean} isDev
  */
-export function getWebpackPlugins(isDev) {
-    var plugins = [
-        new MiniCssExtractPlugin({
+function getWebpackPlugins(isDev) {
+    const plugins = [
+        new mini_css_extract_plugin_1.default({
             filename: 'wc.css',
             // см. https://github.com/webpack-contrib/mini-css-extract-plugin/issues/250#issuecomment-447346852
             // и связанные с этим комментарием issue. Мы используем css модули - нам не важен порядок css.
             ignoreOrder: true,
         }),
         // Запрещаем ленгам создавать отдельный чанк
-        new webpack.optimize.LimitChunkCountPlugin({
+        new webpack_1.default.optimize.LimitChunkCountPlugin({
             maxChunks: 1,
         }),
-        new webpack.ProvidePlugin({
+        new webpack_1.default.ProvidePlugin({
             React: 'react',
         }),
-        new webpack.IgnorePlugin({
+        new webpack_1.default.IgnorePlugin({
             resourceRegExp: /\.md$/i,
         }),
     ];
     if (isDev) {
-        plugins.push(new webpack.ProgressPlugin({
+        plugins.push(new webpack_1.default.ProgressPlugin({
         // handler: getPercentageHanlder(),
         }));
     }
     else {
-        var commitHash = execSync('git rev-parse --short HEAD').toString().trim();
-        plugins.push(new webpack.BannerPlugin("Commit hash: ".concat(commitHash)));
+        const commitHash = (0, node_child_process_1.execSync)('git rev-parse --short HEAD').toString().trim();
+        plugins.push(new webpack_1.default.BannerPlugin(`Commit hash: ${commitHash}`));
     }
     return plugins;
 }
+exports.getWebpackPlugins = getWebpackPlugins;

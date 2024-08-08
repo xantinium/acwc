@@ -3,8 +3,8 @@
         "strict": true,
         "strictNullChecks": false,
         "skipLibCheck": true,
-        "module": "ESNext",
-        "moduleResolution": "Node",
+        "module": "Node16",
+        "moduleResolution": "Node16",
         "rootDir": "./src",
         "outDir": "./dist",
         "allowSyntheticDefaultImports": true

@@ -1,18 +1,24 @@
-import path from 'node:path';
-import webpack from 'webpack';
-import WebpackDevServer from 'webpack-dev-server';
-import { PROCESS_DIR } from '../../utils';
-import { getWebpackLoaders } from './loaders';
-import { getWebpackPlugins } from './plugins';
-import { getWebpackDevServerConfig } from './dev-server';
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createWebpackDevServer = void 0;
+const node_path_1 = __importDefault(require("node:path"));
+const webpack_1 = __importDefault(require("webpack"));
+const webpack_dev_server_1 = __importDefault(require("webpack-dev-server"));
+const utils_1 = require("../../utils");
+const loaders_1 = require("./loaders");
+const plugins_1 = require("./plugins");
+const dev_server_1 = require("./dev-server");
 function getWebpackConfig(isDev) {
     return {
         target: 'web',
         mode: 'development',
-        entry: path.join(PROCESS_DIR, 'index.ts'),
+        entry: node_path_1.default.join(utils_1.PROCESS_DIR, 'index.ts'),
         output: {
             clean: true,
-            path: path.join(PROCESS_DIR, 'dist'),
+            path: node_path_1.default.join(utils_1.PROCESS_DIR, 'dist'),
             filename: 'wc.js',
         },
         watchOptions: {
@@ -26,9 +32,9 @@ function getWebpackConfig(isDev) {
         },
         devtool: 'eval-source-map',
         module: {
-            rules: getWebpackLoaders(isDev),
+            rules: (0, loaders_1.getWebpackLoaders)(isDev),
         },
-        plugins: getWebpackPlugins(isDev),
+        plugins: (0, plugins_1.getWebpackPlugins)(isDev),
         // stats: {
         //     assets: false,
         //     modules: false,
@@ -40,8 +46,9 @@ function getWebpackConfig(isDev) {
         // },
     };
 }
-export function createWebpackDevServer(isDev) {
-    var devServerConfig = getWebpackDevServerConfig();
-    var compiler = webpack(getWebpackConfig(isDev));
-    return new WebpackDevServer(devServerConfig, compiler);
+function createWebpackDevServer(isDev) {
+    const devServerConfig = (0, dev_server_1.getWebpackDevServerConfig)();
+    const compiler = (0, webpack_1.default)(getWebpackConfig(isDev));
+    return new webpack_dev_server_1.default(devServerConfig, compiler);
 }
+exports.createWebpackDevServer = createWebpackDevServer;
