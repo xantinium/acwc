@@ -8,7 +8,6 @@ const node_os_1 = __importDefault(require("node:os"));
 const promises_1 = __importDefault(require("node:fs/promises"));
 const node_path_1 = __importDefault(require("node:path"));
 exports.PROCESS_DIR = process.cwd();
-// export const CURRENT_DIR = import.meta.dirname;
 exports.CURRENT_DIR = __dirname;
 const DIST_DIR = node_path_1.default.join(exports.CURRENT_DIR, '..', 'dist');
 function toUpperCaseFirstChar(str) {

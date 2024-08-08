@@ -9,7 +9,7 @@ export function getWebpackDevServerConfig(): Configuration {
 
     return {
         port: 3000,
-        static: path.join(CURRENT_DIR, '..', 'public'),
+        static: path.join(CURRENT_DIR, '..', '..', 'public'),
         proxy: [
             {
                 target,

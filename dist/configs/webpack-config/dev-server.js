@@ -12,7 +12,7 @@ function getWebpackDevServerConfig() {
     const target = `http://${ip_1.default.address()}`;
     return {
         port: 3000,
-        static: node_path_1.default.join(utils_1.CURRENT_DIR, '..', 'public'),
+        static: node_path_1.default.join(utils_1.CURRENT_DIR, '..', '..', 'public'),
         proxy: [
             {
                 target,
