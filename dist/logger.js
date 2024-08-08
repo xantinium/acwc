@@ -55,9 +55,13 @@ exports.Logger = {
         };
         if (options) {
             if (options.color && options.color in FONT_COLORS) {
+                // TODO
+                // @ts-ignore
                 fontModificators.push(FONT_COLORS[options.color]);
             }
             if (options.bgColor && options.bgColor in BG_COLORS) {
+                // TODO
+                // @ts-ignore
                 fontModificators.push(BG_COLORS[options.bgColor]);
             }
         }

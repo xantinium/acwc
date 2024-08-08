@@ -14,7 +14,7 @@
   "files": ["./dist"],
   "scripts": {
     "prebuild": "rm -rf ./dist",
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
     "@swc/core": "1.3.37",

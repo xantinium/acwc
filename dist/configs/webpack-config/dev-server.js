@@ -7,12 +7,11 @@ exports.getWebpackDevServerConfig = void 0;
 const ip_1 = __importDefault(require("ip"));
 const node_path_1 = __importDefault(require("node:path"));
 const node_readline_1 = __importDefault(require("node:readline"));
-const utils_1 = require("../../utils");
 function getWebpackDevServerConfig() {
     const target = `http://${ip_1.default.address()}`;
     return {
         port: 3000,
-        static: node_path_1.default.join(utils_1.CURRENT_DIR, '..', '..', 'public'),
+        static: node_path_1.default.join('/home/vladislav/Desktop/wc-test/node_modules/altcraft-web-components/public'),
         proxy: [
             {
                 target,
