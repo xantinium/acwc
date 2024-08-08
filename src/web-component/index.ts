@@ -6,24 +6,24 @@ function createStyles() {
     return style;
 }
 
-export abstract class WebComponent extends HTMLElement {
+export abstract class WebComponent {
     private depsManager: DepsManager;
 
     constructor() {
-        super();
+        // super();
 
         this.depsManager = new DepsManager();
     }
 
     connectedCallback() {
-        const shadow = this.attachShadow({ mode: 'closed' });
+        // const shadow = this.attachShadow({ mode: 'closed' });
 
         // Нода в которую будет вмонтирован React-компонент
-		const container = document.createElement('div');
+		// const container = document.createElement('div');
 
         // Создаём стили для веб-компонента и отслеживаем их загрузку
-		const styles = createStyles();
-		styles.addEventListener('load', this.depsManager.setStylesLoaded);
-        shadow.append(styles, container);
+		// const styles = createStyles();
+		// styles.addEventListener('load', this.depsManager.setStylesLoaded);
+        // shadow.append(styles, container);
     }
 }

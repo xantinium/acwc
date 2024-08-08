@@ -1,4 +1,4 @@
-export declare abstract class WebComponent extends HTMLElement {
+export declare abstract class WebComponent {
     private depsManager;
     constructor();
     connectedCallback(): void;
