@@ -25,7 +25,7 @@ function getWebpackConfig(isDev) {
             ignored: /node_modules/,
         },
         resolve: {
-            extensions: ['.ts', '.tsx'],
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
             fallback: {
                 fs: false,
             },
