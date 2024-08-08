@@ -14,7 +14,7 @@ function getWebpackConfig(isDev: boolean): Configuration {
         output: {
             clean: true,
             path: path.join(PROCESS_DIR, 'dist'),
-            filename: 'web-components.js',
+            filename: 'web-component.js',
         },
         watchOptions: {
             ignored: /node_modules/,
