@@ -1,11 +1,13 @@
-/**
- * @typedef {'black' | 'red' | 'green' | 'yellow' | 'blue' | 'magenta' | 'cyan' | 'white'} Color
- * 
- * @typedef {Object} LogOptions
- * @property {Color=} color Цвет шрифта
- * @property {Color=} bgColor Цвет фона
- * @property {Color=} withNewline Нужен ли переход на новую строку
- */
+type Color = 'black' | 'red' | 'green' | 'yellow' | 'blue' | 'magenta' | 'cyan' | 'white';
+
+type LogOptions = {
+    /** Цвет шрифта */
+    color?: Color
+    /** Цвет фона */
+    bgColor?: Color
+    /** Нужен ли переход на новую строку */
+    withNewline?: boolean
+};
 
 export const Logger = {
     /** Очистка консоли */
@@ -14,9 +16,9 @@ export const Logger = {
     },
     /**
      * Вывод логотипа
-     * @param {number} padding Размер отступа
+     * @param padding Размер отступа
      */
-    printLogo(padding = 12) {
+    printLogo(padding: number = 12) {
         let logo = `
           _ _    _____            __ _
     /\\   | | |  / ____|          / _| |
@@ -37,10 +39,10 @@ export const Logger = {
     },
     /**
      * Стилизованный вывод в консоль
-     * @param {string} text Текст
-     * @param {LogOptions=} options Параметры стилизации
+     * @param text Текст
+     * @param options Параметры стилизации
      */
-    log(text, options) {
+    log(text: string, options?: LogOptions) {
         const fontModificators = [];
 
         const RESET = '\x1b[0m';
@@ -92,10 +94,10 @@ export const Logger = {
         }
     },
     /**
-     * Логирование ошибки и заершение процесса сборки
-     * @param {string} text Текст ошибки
+     * Логирование ошибки и завершение процесса сборки
+     * @param text Текст ошибки
      */
-    fatal(text) {
+    fatal(text: string) {
         this.log(' ERROR ', { bgColor: 'red', withNewline: false });
         this.log(` ${text}`);
         process.exit(1);

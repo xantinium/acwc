@@ -1,14 +1,15 @@
 import ip from 'ip';
 import path from 'node:path';
 import readline from 'node:readline';
-import { CURRENT_DIR } from '../../utils.js';
+import { Configuration } from 'webpack-dev-server';
+import { CURRENT_DIR } from '../../utils';
 
-export function getWebpackDevServerConfig() {
+export function getWebpackDevServerConfig(): Configuration {
     const target = `http://${ip.address()}`;
 
     return {
         port: 3000,
-        static: path.join(CURRENT_DIR, 'public'),
+        static: path.join(CURRENT_DIR, '..', 'public'),
         proxy: [
             {
                 target,

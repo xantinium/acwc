@@ -1,7 +1,8 @@
+import { RuleSetRule } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-export function getWebpackLoaders(isDev) {
-    const cssLoader = {
+export function getWebpackLoaders(isDev: boolean) {
+    const cssLoader: RuleSetRule['use'] = {
         loader: 'css-loader',
         options: {
             sourceMap: false,
@@ -12,7 +13,7 @@ export function getWebpackLoaders(isDev) {
         },
     };
 
-    const loaders = [
+    const loaders: RuleSetRule[] = [
         {
             test: /\.[jt]sx?$/i,
             include(value) {

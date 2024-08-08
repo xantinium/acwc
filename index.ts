@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
-import { cleanUp, convertFromKebabCase, generateDist, KNOWN_COMMANDS, parseCommand } from './src/utils.js';
-import { command_start } from './src/commands/start.js';
-import { initPackageJSON } from './src/configs/package-json.js';
+import { command_start } from './src/commands/start';
+import { initPackageJSON } from './src/configs/package-json';
+import {
+    cleanUp, convertFromKebabCase, generateDist, KNOWN_COMMANDS, parseCommand,
+} from './src/utils';
 
 async function acwc() {
     const command = parseCommand(process.argv);

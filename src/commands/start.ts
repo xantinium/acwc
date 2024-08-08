@@ -1,4 +1,4 @@
-import { createWebpackDevServer } from '../configs/webpack-config/index.js';
+import { createWebpackDevServer } from '../configs/webpack-config';
 
 export function command_start() {
     const wds = createWebpackDevServer(true);

@@ -1,12 +1,12 @@
 import path from 'node:path';
-import webpack from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-import { PROCESS_DIR } from '../../utils.js';
-import { getWebpackLoaders } from './loaders.js';
-import { getWebpackPlugins } from './plugins.js';
-import { getWebpackDevServerConfig } from './dev-server.js';
+import { PROCESS_DIR } from '../../utils';
+import { getWebpackLoaders } from './loaders';
+import { getWebpackPlugins } from './plugins';
+import { getWebpackDevServerConfig } from './dev-server';
 
-function getWebpackConfig(isDev) {
+function getWebpackConfig(isDev: boolean): Configuration {
     return {
         target: 'web',
         mode: 'development',
@@ -20,7 +20,7 @@ function getWebpackConfig(isDev) {
             ignored: /node_modules/,
         },
         resolve: {
-            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            extensions: ['.ts', '.tsx'],
             fallback: {
                 fs: false,
             },
@@ -42,7 +42,7 @@ function getWebpackConfig(isDev) {
     };
 }
 
-export function createWebpackDevServer(isDev) {
+export function createWebpackDevServer(isDev: boolean) {
     const devServerConfig = getWebpackDevServerConfig();
     const compiler = webpack(getWebpackConfig(isDev));
 

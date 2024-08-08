@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { getFileContent, PROCESS_DIR, setFileContent } from '../utils.js';
+import { getFileContent, PROCESS_DIR, setFileContent } from '../utils';
 
 const PROJECT_NAME_REGEXP = /^[a-z\d\-]+$/;
 const packageJSONPath = path.join(PROCESS_DIR, 'package.json');
@@ -24,7 +24,8 @@ async function getPackageJSON() {
     return packageJSON;
 }
 
-function validatePackageJSON(packageJSON) {
+// TODO
+function validatePackageJSON(packageJSON: { name: string }) {
     const name = packageJSON.name;
 
     if (!name) {
@@ -36,6 +37,7 @@ function validatePackageJSON(packageJSON) {
     }
 }
 
+// TODO
 export async function initPackageJSON() {
     const packageJSON = await getPackageJSON();
 

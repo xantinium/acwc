@@ -1,8 +1,8 @@
 import ip from 'ip';
-import webpack from 'webpack';
+import webpack, { WebpackPluginInstance } from 'webpack';
 import { execSync } from 'node:child_process';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { Logger } from '../../logger.js';
+import { Logger } from '../../logger';
 
 const IP_V4 = ip.address();
 const DEFAULT_PORT = 3000;
@@ -10,7 +10,7 @@ const DEFAULT_PORT = 3000;
 function getPercentageHanlder() {
     let oldPercentage = -1;
 
-    return (v) => {
+    return (v: number) => {
         const percentage = Math.floor(v * 100);
 
         if (percentage > oldPercentage) {
@@ -32,28 +32,11 @@ function getPercentageHanlder() {
     };
 }
 
-class WebComponentsPlugin {
-    apply(compiler) {
-        compiler.hooks.done.tap(
-            WebComponentsPlugin.name,
-            (compilation) => {
-                console.log(
-                    'Here’s the `compilation` object which represents a single build of assets:',
-                    compilation
-                );
-
-                // Manipulate the build using the plugin API provided by webpack
-                // compilation.addModule(/* ... */);
-            }
-        );
-    }
-}
-
 /**
  * @param {boolean} isDev
  */
-export function getWebpackPlugins(isDev) {
-    const plugins = [
+export function getWebpackPlugins(isDev: boolean) {
+    const plugins: WebpackPluginInstance[] = [
         new MiniCssExtractPlugin({
             filename: 'wc.css',
             // см. https://github.com/webpack-contrib/mini-css-extract-plugin/issues/250#issuecomment-447346852
@@ -70,7 +53,6 @@ export function getWebpackPlugins(isDev) {
         new webpack.IgnorePlugin({
             resourceRegExp: /\.md$/i,
         }),
-        new WebComponentsPlugin(),
     ];
 
     if (isDev) {

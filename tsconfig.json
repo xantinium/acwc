@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "strictNullChecks": false,
+        "skipLibCheck": true,
+        "module": "ES2022",
+        "moduleResolution": "Node",
+        "isolatedModules": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": [
+        "./src",
+        "./index.ts",
+        "./declarations.d.ts"
+    ],
+    "exclude": [
+        "./dist"
+    ]
+}
