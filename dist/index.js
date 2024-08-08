@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.WebComponent = void 0;
 const start_1 = require("./commands/start");
 const package_json_1 = require("./configs/package-json");
 const utils_1 = require("./utils");
@@ -25,3 +26,5 @@ async function acwc() {
     });
 }
 acwc();
+var web_component_1 = require("./web-component");
+Object.defineProperty(exports, "WebComponent", { enumerable: true, get: function () { return web_component_1.WebComponent; } });

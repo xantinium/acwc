@@ -32,3 +32,5 @@ async function acwc() {
 }
 
 acwc();
+
+export { WebComponent } from './web-component';
