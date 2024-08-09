@@ -6,8 +6,10 @@
         "module": "ES2020",
         "moduleResolution": "Bundler",
         "rootDir": "./src",
-        "outDir": "dist",
-        "removeComments": true,
-        "allowSyntheticDefaultImports": true,
-    }
+        "allowSyntheticDefaultImports": true
+    },
+    "include": [
+        "./src",
+        "declarations.d.ts"
+    ]
 }
