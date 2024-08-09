@@ -1,9 +1,10 @@
-import os from 'node:os';
-import fs from 'node:fs/promises';
-import path from 'node:path';
+import os from 'os';
+import fs from 'fs/promises';
+import path from 'path';
 
 export const PROCESS_DIR = process.cwd();
-export const CURRENT_DIR = __dirname;
+export const CURRENT_DIR = import.meta.dirname;
+// export const CURRENT_DIR = __dirname;
 const DIST_DIR = path.join(CURRENT_DIR, '..', 'dist');
 
 function toUpperCaseFirstChar(str: string) {

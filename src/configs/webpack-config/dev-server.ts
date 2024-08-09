@@ -1,6 +1,6 @@
 import ip from 'ip';
-import path from 'node:path';
-import readline from 'node:readline';
+import path from 'path';
+// import readline from 'node:readline';
 import { Configuration } from 'webpack-dev-server';
 
 export function getWebpackDevServerConfig(): Configuration {

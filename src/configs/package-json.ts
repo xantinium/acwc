@@ -1,4 +1,4 @@
-import path from 'node:path';
+import path from 'path';
 import { getFileContent, PROCESS_DIR, setFileContent } from '../utils';
 
 const PROJECT_NAME_REGEXP = /^[a-z\d\-]+$/;
