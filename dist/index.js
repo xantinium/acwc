@@ -54,10 +54,10 @@ function acwc() {
                             (0, start_1.command_start)();
                             return [2];
                         case utils_1.KNOWN_COMMANDS.TEST:
-                            (0, build_1.command_build)();
+                            console.log('test');
                             return [2];
                         case utils_1.KNOWN_COMMANDS.BUILD:
-                            console.log('build');
+                            (0, build_1.command_build)();
                             return [2];
                     }
                     (0, utils_1.cleanUp)();

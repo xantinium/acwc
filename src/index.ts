@@ -15,10 +15,10 @@ async function acwc() {
         command_start();
         return;
     case KNOWN_COMMANDS.TEST:
-        command_build();
+        console.log('test');
         return;
     case KNOWN_COMMANDS.BUILD:
-        console.log('build');
+        command_build();
         return;
     }
 
