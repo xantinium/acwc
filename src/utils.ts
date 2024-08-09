@@ -3,8 +3,8 @@ import fs from 'fs/promises';
 import path from 'path';
 
 export const PROCESS_DIR = process.cwd();
-export const CURRENT_DIR = import.meta.dirname;
-// export const CURRENT_DIR = __dirname;
+// export const CURRENT_DIR = import.meta.dirname;
+export const CURRENT_DIR = __dirname;
 const DIST_DIR = path.join(CURRENT_DIR, '..', 'dist');
 
 function toUpperCaseFirstChar(str: string) {
@@ -58,7 +58,7 @@ export async function setFileContent(filepath: string, content: string) {
         await fs.mkdir(path.dirname(filepath), { recursive: true });
     } catch (err) {
         // TODO
-        if (typeof err === 'object' && 'code' in err && err.code !== 'EEXIST') {
+        if (typeof err === 'object' && err !== null && 'code' in err && err.code !== 'EEXIST') {
             throw err;
         }
     }
@@ -90,7 +90,7 @@ export async function generateDist(params: Params) {
         await fs.mkdir(DIST_DIR);
     } catch (err) {
         // TODO
-        if (typeof err === 'object' && 'code' in err && err.code !== 'EEXIST') {
+        if (typeof err === 'object' && err !== null && 'code' in err && err.code !== 'EEXIST') {
             throw err;
         }
     }

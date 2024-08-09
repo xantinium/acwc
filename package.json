@@ -9,11 +9,11 @@
     "node": ">=20.0.0"
   },
   "bin": {
-    "acwc": "./src/index.ts"
+    "acwc": "./dist/index.js"
   },
   "exports": {
     ".": {
-      "default": "./src/index.js",
+      "default": "./dist/index.js",
       "types": "./types/index.d.ts"
     }
   },
