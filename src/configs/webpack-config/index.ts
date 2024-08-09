@@ -1,12 +1,10 @@
 import path from 'path';
-import webpack, { Configuration } from 'webpack';
-import WebpackDevServer from 'webpack-dev-server';
+import { Configuration } from 'webpack';
 import { PROCESS_DIR } from '../../utils';
 import { getWebpackLoaders } from './loaders';
 import { getWebpackPlugins } from './plugins';
-import { getWebpackDevServerConfig } from './dev-server';
 
-function getWebpackConfig(isDev: boolean): Configuration {
+export function getWebpackConfig(isDev: boolean): Configuration {
     return {
         target: 'web',
         mode: 'development',
@@ -40,11 +38,4 @@ function getWebpackConfig(isDev: boolean): Configuration {
         //     level: 'warn',
         // },
     };
-}
-
-export function createWebpackDevServer(isDev: boolean) {
-    const devServerConfig = getWebpackDevServerConfig();
-    const compiler = webpack(getWebpackConfig(isDev));
-
-    return new WebpackDevServer(devServerConfig, compiler);
 }

@@ -39,6 +39,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WebComponent = void 0;
 var start_1 = require("./commands/start");
+var build_1 = require("./commands/build");
 var package_json_1 = require("./configs/package-json");
 var utils_1 = require("./utils");
 function acwc() {
@@ -53,7 +54,7 @@ function acwc() {
                             (0, start_1.command_start)();
                             return [2];
                         case utils_1.KNOWN_COMMANDS.TEST:
-                            console.log('test');
+                            (0, build_1.command_build)();
                             return [2];
                         case utils_1.KNOWN_COMMANDS.BUILD:
                             console.log('build');

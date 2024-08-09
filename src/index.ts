@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { command_start } from './commands/start';
+import { command_build } from './commands/build';
 import { initPackageJSON } from './configs/package-json';
 import {
     cleanUp, convertFromKebabCase, generateDist, KNOWN_COMMANDS, parseCommand,
@@ -14,7 +15,7 @@ async function acwc() {
         command_start();
         return;
     case KNOWN_COMMANDS.TEST:
-        console.log('test');
+        command_build();
         return;
     case KNOWN_COMMANDS.BUILD:
         console.log('build');
